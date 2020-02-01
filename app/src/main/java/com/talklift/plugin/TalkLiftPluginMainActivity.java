@@ -2,10 +2,12 @@ package com.talklift.plugin;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+
 import com.talklift.plugin.R;
 
 /**
@@ -28,23 +30,24 @@ public class TalkLiftPluginMainActivity extends Activity {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-//                base_color,
-//                text_color,
-//                c_code,
-        Intent intent = getIntent();
-        String base_color = intent.getStringExtra("base_color");
-        String text_color = intent.getStringExtra("text_color");
-        String c_code = intent.getStringExtra("c_code");
+        try {
+            ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            Bundle bundle = ai.metaData;
 
 
-        // This URL should be loaded automatically
-         mWebView.loadUrl("https://app.talklift.com/web-widget/1/?org_id=1&c_code="+c_code+"&base_color="+base_color+"&text_color="+text_color);
-         mWebView.setWebViewClient(new TalkLiftWebViewClient());
+            String base_color = bundle.getString("base_color");
+            String text_color = bundle.getString("text_color");
+            String c_code = bundle.getString("c_code");
+            mWebView.loadUrl("https://app.talklift.com/web-widget/1/?org_id=1&c_code=" + c_code + "&base_color=" + base_color + "&text_color=" + text_color);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        mWebView.setWebViewClient(new TalkLiftWebViewClient());
     }
 
     @Override
     public void onBackPressed() {
-        if(mWebView.canGoBack()) {
+        if (mWebView.canGoBack()) {
             mWebView.goBack();
         } else {
             super.onBackPressed();
