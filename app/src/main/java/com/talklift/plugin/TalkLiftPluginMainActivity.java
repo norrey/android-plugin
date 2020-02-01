@@ -19,7 +19,8 @@ public class TalkLiftPluginMainActivity extends Activity {
     @SuppressLint("SetJavaScriptEnabled")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.talklift_plugin_activity_main);
+
         mWebView = findViewById(R.id.activity_main_webview);
         mWebView.setWebViewClient(new android.webkit.WebViewClient());
         WebSettings webSettings = mWebView.getSettings();
