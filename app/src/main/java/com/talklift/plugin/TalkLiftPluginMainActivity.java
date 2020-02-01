@@ -35,10 +35,13 @@ public class TalkLiftPluginMainActivity extends Activity {
             Bundle bundle = ai.metaData;
 
 
-            String base_color = bundle.getString("base_color");
-            String text_color = bundle.getString("text_color");
-            String c_code = bundle.getString("c_code");
-            mWebView.loadUrl("https://app.talklift.com/web-widget/1/?org_id=1&c_code=" + c_code + "&base_color=" + base_color + "&text_color=" + text_color);
+            String base_color = bundle.getString("talklift_chat_base_color");
+            String text_color = bundle.getString("talklift_chat_text_color");
+            String c_code = bundle.getString("talklift_chat_c_code");
+            String org_id = bundle.getString("talklift_chat_org_id");
+
+            mWebView.loadUrl("https://app.talklift.com/web-widget/1/?org_id="+org_id+"&c_code=" + c_code + "&base_color=" + base_color + "&text_color=" + text_color);
+
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
