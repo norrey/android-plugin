@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import com.talklift.plugin.R;
 
 /**
  * @author Norrey Okumu<okumu.norrey@gmail.com>
