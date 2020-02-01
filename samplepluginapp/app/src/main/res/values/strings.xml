@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TalkLift Chat Lib Sample</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="talklift_chat_c_color">00we12</string>
+    <string name="talklift_chat_base_color">ffffff</string>
+    <string name="talklift_chat_text_color">000000</string>
+    <string name="talklift_chat_org_id">1</string>
+
+</resources>
