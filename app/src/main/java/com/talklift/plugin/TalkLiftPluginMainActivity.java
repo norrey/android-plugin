@@ -40,7 +40,8 @@ public class TalkLiftPluginMainActivity extends Activity {
             String c_code = bundle.getString("talklift_chat_c_color");
             String org_id = bundle.getString("talklift_chat_org_id");
 
-            mWebView.loadUrl("https://app.talklift.com/web-widget/1/?org_id="+org_id+"&c_code=" + c_code + "&base_color=" + base_color + "&text_color=" + text_color);
+//            mWebView.loadUrl("https://app.talklift.com/web-widget/1/?org_id="+org_id+"&c_code=" + c_code + "&base_color=" + base_color + "&text_color=" + text_color);
+            mWebView.loadUrl("https://app.talklift.com/web-widget/1/?org_id="+org_id+"&platform=android");
 
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
